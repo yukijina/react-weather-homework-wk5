@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Search.css';
 import axios from 'axios';
+import CurrentWeather from './CurrentWeather';
 
 export default function Search() {
   const [city, setCity] = useState('New York');
@@ -32,7 +33,6 @@ export default function Search() {
       'Sunday',
     ];
     const date = new Date(time);
-    // let currentTime = {};
 
     const currentTime = {
       month: months[date.getMonth()],
@@ -74,22 +74,25 @@ export default function Search() {
     setCity(e.target.value);
   }
   return (
-    <section className='Search'>
-      <form
-        className='Search-form d-flex justify-content-center'
-        onSubmit={handleSubmit}
-      >
-        <input
-          type='search'
-          className='Search-text py-2 px-2'
-          onChange={handleChange}
-        />
-        <input
-          type='submit'
-          value='SEARCH'
-          className='Search-btn btn btn-primary py-3 px-5'
-        />
-      </form>
-    </section>
+    <main>
+      <section className='Search'>
+        <form
+          className='Search-form d-flex justify-content-center'
+          onSubmit={handleSubmit}
+        >
+          <input
+            type='search'
+            className='Search-text py-2 px-2'
+            onChange={handleChange}
+          />
+          <input
+            type='submit'
+            value='SEARCH'
+            className='Search-btn btn btn-primary py-3 px-5'
+          />
+        </form>
+      </section>
+      <CurrentWeather data={weatherData} />
+    </main>
   );
 }
