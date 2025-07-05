@@ -7,43 +7,6 @@ export default function Search() {
   const [city, setCity] = useState('New York');
   const [weatherData, setWeatherData] = useState({});
 
-  function formattedTime(time) {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'Octover',
-      'November',
-      'December',
-    ];
-
-    const days = [
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday',
-    ];
-    const date = new Date(time);
-
-    const currentTime = {
-      month: months[date.getMonth()],
-      date: date.getDate(),
-      day: days[date.getDay()],
-      time: `${date.getHours()}:${date.getMinutes()}`,
-    };
-
-    return currentTime;
-  }
-
   function setTitleCase(string) {
     return string.replace(
       /\w\S*/g,
@@ -62,7 +25,7 @@ export default function Search() {
       humidity: data.temperature.humidity,
       wind: data.wind.speed,
       iconUrl: data.condition.icon_url,
-      time: formattedTime(data.time),
+      time: data.time,
     });
   }
 

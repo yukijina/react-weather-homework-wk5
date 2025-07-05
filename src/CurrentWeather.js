@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './CurrentWeather.css';
 import Temperature from './Temperature';
+import FormattedTime from './FormattedTime';
 
 export default function CurrentWeather({ data }) {
   if (Object.keys(data).length !== 0) {
@@ -9,12 +10,7 @@ export default function CurrentWeather({ data }) {
         <article className='row'>
           <h2 className='CurrentWeather-heading--2'>{data.city}</h2>
           <h3 className='CurrentWeather-heading--3'>{data.country}</h3>
-          <div className='d-flex'>
-            <p className='pe-1'>{data.time.day} </p>
-            <p className='pe-1'>{data.time.time}, </p>
-            <p className='pe-1'>{data.time.month}</p>
-            <p className='pe-1'>{data.time.date} </p>
-          </div>
+          <FormattedTime time={data.time} />
           <p>{data.description}</p>
         </article>
         <article className='row align-items-center'>
