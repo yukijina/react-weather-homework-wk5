@@ -3,11 +3,7 @@ import './CurrentWeather.css';
 import Temperature from './Temperature';
 
 export default function CurrentWeather({ data }) {
-  const [celsius, setCelsius] = useState(data.temperature);
-  const [fahrenheit, setFahrenheit] = useState(null);
-
   if (Object.keys(data).length !== 0) {
-    console.log(data);
     return (
       <section className='CurrentWeather container'>
         <article className='row'>
