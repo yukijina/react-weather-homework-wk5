@@ -53,7 +53,6 @@ export default function Search() {
   }
 
   function showWeather(response) {
-    console.log(response.data);
     const data = response.data;
     setWeatherData({
       city: data.city,
@@ -65,12 +64,10 @@ export default function Search() {
       iconUrl: data.condition.icon_url,
       time: formattedTime(data.time),
     });
-    console.log(weatherData);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted');
 
     const apiKey = '2f5896dd4cc0cdo340203tba4fba205f';
     const url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
