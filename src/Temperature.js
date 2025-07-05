@@ -2,57 +2,113 @@ import React, { useState } from 'react';
 import './Temperature.css';
 
 export default function Temperature({ temperature }) {
-  const [result, setResult] = useState(temperature);
-  const [celsius, setCelsius] = useState(true);
-  const [fahrenheit, setFahrenheit] = useState(false);
+  const [unit, setUnit] = useState('celsius');
 
   function clickCelsius(e) {
     e.preventDefault();
-    setResult(temperature);
-    setCelsius(true);
-    setFahrenheit(false);
+    setUnit('celsius');
   }
 
   function clickFahrenheit(e) {
     e.preventDefault();
-    setResult(Math.round((temperature * 9) / 5 + 32));
-    setCelsius(false);
-    setFahrenheit(true);
+    setUnit('fahrenheit');
   }
 
-  return (
-    <div className='Temperature'>
-      <p>
-        <span className='Temperature-result'>{result}</span>
-        <span className='Temperature-unit '>
-          {' '}
-          <a
-            href='#'
-            onClick={clickCelsius}
-            className={
-              celsius
-                ? 'Temperature-link Temperature-active text-primary'
-                : 'Temperature-link'
-            }
-            title='Change to celsius'
-          >
-            °C
-          </a>{' '}
-          |
-          <a
-            href='#'
-            onClick={clickFahrenheit}
-            className={
-              fahrenheit
-                ? 'Temperature-link Temperature-active text-primary'
-                : 'Temperature-link'
-            }
-            title='Change to fahrenheit'
-          >
-            °F
-          </a>
-        </span>
-      </p>
-    </div>
-  );
+  function convertToFahrenheit(num) {
+    return Math.round((num * 9) / 5 + 32);
+  }
+
+  if (unit === 'celsius') {
+    return (
+      <div className='Temperature'>
+        <p>
+          <span className='Temperature-result'>{temperature}</span>
+          <span className='Temperature-unit '>
+            {' '}
+            <a
+              href='#'
+              className='Temperature-link Temperature-active text-primary'
+              title='Change to celsius'
+            >
+              °C
+            </a>{' '}
+            |
+            <a
+              href='#'
+              onClick={clickFahrenheit}
+              className='Temperature-link'
+              title='Change to fahrenheit'
+            >
+              °F
+            </a>
+          </span>
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div className='Temperature'>
+        <p>
+          <span className='Temperature-result'>
+            {convertToFahrenheit(temperature)}
+          </span>
+          <span className='Temperature-unit '>
+            {' '}
+            <a
+              href='#'
+              onClick={clickCelsius}
+              className='Temperature-link'
+              title='Change to celsius'
+            >
+              °C
+            </a>{' '}
+            |
+            <a
+              href='#'
+              className='Temperature-link Temperature-active text-primary'
+              title='Change to fahrenheit'
+            >
+              °F
+            </a>
+          </span>
+        </p>
+      </div>
+    );
+  }
 }
+
+// return (
+//   <div className='Temperature'>
+//     <p>
+//       <span className='Temperature-result'>{temperature}</span>
+//       <span className='Temperature-unit '>
+//         {' '}
+//         <a
+//           href='#'
+//           onClick={clickCelsius}
+//           className={
+//             celsius
+//               ? 'Temperature-link Temperature-active text-primary'
+//               : 'Temperature-link'
+//           }
+//           title='Change to celsius'
+//         >
+//           °C
+//         </a>{' '}
+//         |
+//         <a
+//           href='#'
+//           onClick={clickFahrenheit}
+//           className={
+//             fahrenheit
+//               ? 'Temperature-link Temperature-active text-primary'
+//               : 'Temperature-link'
+//           }
+//           title='Change to fahrenheit'
+//         >
+//           °F
+//         </a>
+//       </span>
+//     </p>
+//   </div>
+// );
