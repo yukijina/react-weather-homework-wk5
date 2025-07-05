@@ -1,0 +1,24 @@
+.Temperature-result {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.Temperature-unit {
+  font-size: 1.6rem;
+}
+
+.Temperature-link,
+.Temperature-link:link,
+.Temperature-link:visited,
+.Temperature-link:active {
+  text-decoration: none;
+  color: #000;
+}
+
+.Temperature-link:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.Temperature-link.Temperature-active {
+  font-weight: 600;
+}

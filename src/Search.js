@@ -44,13 +44,21 @@ export default function Search() {
     return currentTime;
   }
 
+  function setTitleCase(string) {
+    return string.replace(
+      /\w\S*/g,
+      (string) =>
+        string.charAt(0).toUpperCase() + string.substring(1).toLowerCase()
+    );
+  }
+
   function showWeather(response) {
     console.log(response.data);
     const data = response.data;
     setWeatherData({
       city: data.city,
       country: data.country,
-      description: data.condition.description,
+      description: setTitleCase(data.condition.description),
       temperature: Math.ceil(data.temperature.current),
       humidity: data.temperature.humidity,
       wind: data.wind.speed,

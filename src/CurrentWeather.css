@@ -1,0 +1,21 @@
+section.CurrentWeather {
+  max-width: 50rem;
+  margin: 8rem auto;
+}
+
+.CurrentWeather p {
+  font-size: 1.8rem;
+}
+
+.CurrentWeather-heading--2 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.CurrentWeather-heading--3 {
+  font-size: 2.4rem;
+}
+
+.CurrentWeather-icon {
+  width: 100%;
+}
