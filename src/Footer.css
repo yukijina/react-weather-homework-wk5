@@ -1,0 +1,20 @@
+.Footer {
+  text-align: center;
+  margin: 5rem auto;
+}
+
+.Footer p {
+  font-size: 1.4rem;
+}
+
+.Footer a,
+.Footer a:link,
+.Footer a:active,
+.Footer a:visited {
+  text-decoration: none;
+}
+
+.Footer a:hover {
+  color: #0051f4;
+  font-weight: 700;
+}

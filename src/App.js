@@ -1,6 +1,7 @@
 import './App.css';
 import Search from './Search';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <h1 className='App-heading--1'>Weather App</h1>
       </header>
       <Search />
+      <Footer />
     </div>
   );
 }
